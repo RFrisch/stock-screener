@@ -209,7 +209,7 @@
             text-align: center;
             color: #64748b;
             font-size: 0.8rem;
-            margin-top: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .loading {
@@ -277,6 +277,8 @@
             <p class="subtitle">Stocks trading near their 52-week lows</p>
         </header>
 
+        <p class="last-updated" id="lastUpdated"></p>
+
         <div class="stats-grid" id="stats">
             <div class="stat-card">
                 <div class="stat-value" id="stocksFound">-</div>
@@ -320,7 +322,6 @@
             </div>
         </div>
 
-        <p class="last-updated" id="lastUpdated"></p>
     </div>
 
     <script>
@@ -392,7 +393,9 @@
             document.getElementById('stocksFound').textContent = data.stocks_found;
             document.getElementById('totalScreened').textContent = data.total_screened;
             document.getElementById('threshold').textContent = `≤${data.threshold_percent}%`;
-            document.getElementById('lastUpdated').textContent = `Last updated: ${data.last_updated}`;
+            const utcDate = new Date(data.last_updated + ' UTC');
+            const osloTime = utcDate.toLocaleString('en-GB', { timeZone: 'Europe/Oslo', dateStyle: 'medium', timeStyle: 'short' });
+            document.getElementById('lastUpdated').textContent = `Last updated: ${osloTime} (Oslo)`;
 
             if (data.stocks.length === 0) {
                 document.getElementById('noData').style.display = 'block';
