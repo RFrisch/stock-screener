@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-03 05:19:00 UTC",
+  "last_updated": "2026-04-04 05:07:41 UTC",
   "threshold_percent": 15,
   "total_screened": 323,
   "stocks_found": 77,
@@ -52,11 +52,11 @@
       "pe_ratio": 27.653227,
       "forward_pe": 16.852884,
       "market_cap": 178755452928,
-      "dividend_yield": 2.46,
+      "dividend_yield": 2.45,
       "market_cap_fmt": "$178.76B",
       "pe_ratio_fmt": "27.65",
       "forward_pe_fmt": "16.85",
-      "dividend_yield_fmt": "2.46%"
+      "dividend_yield_fmt": "2.45%"
     },
     {
       "ticker": "GPN",
@@ -88,11 +88,11 @@
       "pe_ratio": 28.244131,
       "forward_pe": 20.688753,
       "market_cap": 579954278400,
-      "dividend_yield": 0.9,
+      "dividend_yield": 0.89,
       "market_cap_fmt": "$579.95B",
       "pe_ratio_fmt": "28.24",
       "forward_pe_fmt": "20.69",
-      "dividend_yield_fmt": "0.90%"
+      "dividend_yield_fmt": "0.89%"
     },
     {
       "ticker": "NKE",
@@ -247,12 +247,12 @@
       "high_52week": 211.48,
       "pct_above_low": 4.08,
       "range_position": 3.52,
-      "pe_ratio": 60.714287,
+      "pe_ratio": 61.077847,
       "forward_pe": 20.326702,
       "market_cap": 107624587264,
       "dividend_yield": null,
       "market_cap_fmt": "$107.62B",
-      "pe_ratio_fmt": "60.71",
+      "pe_ratio_fmt": "61.08",
       "forward_pe_fmt": "20.33",
       "dividend_yield_fmt": "N/A"
     },
@@ -265,14 +265,14 @@
       "high_52week": 170.33,
       "pct_above_low": 4.1,
       "range_position": 8.15,
-      "pe_ratio": 19.494215,
+      "pe_ratio": 19.62396,
       "forward_pe": 15.633886,
       "market_cap": 51975360512,
-      "dividend_yield": 1.81,
+      "dividend_yield": 1.8,
       "market_cap_fmt": "$51.98B",
-      "pe_ratio_fmt": "19.49",
+      "pe_ratio_fmt": "19.62",
       "forward_pe_fmt": "15.63",
-      "dividend_yield_fmt": "1.81%"
+      "dividend_yield_fmt": "1.80%"
     },
     {
       "ticker": "ADBE",
@@ -304,11 +304,11 @@
       "pe_ratio": null,
       "forward_pe": -540.375,
       "market_cap": 7491774976,
-      "dividend_yield": 9.42,
+      "dividend_yield": 9.44,
       "market_cap_fmt": "$7.49B",
       "pe_ratio_fmt": "N/A",
       "forward_pe_fmt": "-540.38",
-      "dividend_yield_fmt": "9.42%"
+      "dividend_yield_fmt": "9.44%"
     },
     {
       "ticker": "AVB",
@@ -445,12 +445,12 @@
       "high_52week": 377.93,
       "pct_above_low": 5.44,
       "range_position": 21.51,
-      "pe_ratio": 30.994152,
+      "pe_ratio": 30.963972,
       "forward_pe": 23.687098,
       "market_cap": 78792376320,
       "dividend_yield": 1.01,
       "market_cap_fmt": "$78.79B",
-      "pe_ratio_fmt": "30.99",
+      "pe_ratio_fmt": "30.96",
       "forward_pe_fmt": "23.69",
       "dividend_yield_fmt": "1.01%"
     },
@@ -697,14 +697,14 @@
       "high_52week": 34.33,
       "pct_above_low": 6.65,
       "range_position": 15.36,
-      "pe_ratio": 25.80808,
+      "pe_ratio": 26.614584,
       "forward_pe": 35.681366,
       "market_cap": 15662675968,
-      "dividend_yield": 4.83,
+      "dividend_yield": 4.7,
       "market_cap_fmt": "$15.66B",
-      "pe_ratio_fmt": "25.81",
+      "pe_ratio_fmt": "26.61",
       "forward_pe_fmt": "35.68",
-      "dividend_yield_fmt": "4.83%"
+      "dividend_yield_fmt": "4.70%"
     },
     {
       "ticker": "FNF",
@@ -877,12 +877,12 @@
       "high_52week": 552.24,
       "pct_above_low": 9.14,
       "range_position": 14.89,
-      "pe_ratio": 23.355846,
+      "pe_ratio": 23.370462,
       "forward_pe": 19.81789,
       "market_cap": 2775695753216,
       "dividend_yield": 0.97,
       "market_cap_fmt": "$2.78T",
-      "pe_ratio_fmt": "23.36",
+      "pe_ratio_fmt": "23.37",
       "forward_pe_fmt": "19.82",
       "dividend_yield_fmt": "0.97%"
     },
@@ -950,12 +950,12 @@
       "pct_above_low": 11.36,
       "range_position": 18.69,
       "pe_ratio": 32.964497,
-      "forward_pe": 17.55392,
+      "forward_pe": 17.566484,
       "market_cap": 46564864000,
       "dividend_yield": 1.72,
       "market_cap_fmt": "$46.56B",
       "pe_ratio_fmt": "32.96",
-      "forward_pe_fmt": "17.55",
+      "forward_pe_fmt": "17.57",
       "dividend_yield_fmt": "1.72%"
     },
     {
@@ -985,14 +985,14 @@
       "high_52week": 268.02,
       "pct_above_low": 11.58,
       "range_position": 23.89,
-      "pe_ratio": 20.720163,
+      "pe_ratio": 20.69887,
       "forward_pe": 14.328859,
       "market_cap": 225267220480,
-      "dividend_yield": 2.0,
+      "dividend_yield": 2.03,
       "market_cap_fmt": "$225.27B",
-      "pe_ratio_fmt": "20.72",
+      "pe_ratio_fmt": "20.70",
       "forward_pe_fmt": "14.33",
-      "dividend_yield_fmt": "2.00%"
+      "dividend_yield_fmt": "2.03%"
     },
     {
       "ticker": "CCI",
@@ -1021,12 +1021,12 @@
       "high_52week": 5805.0,
       "pct_above_low": 11.64,
       "range_position": 21.36,
-      "pe_ratio": 25.311146,
+      "pe_ratio": 632.6259,
       "forward_pe": 13.396347,
       "market_cap": 135198621696,
       "dividend_yield": 0.94,
       "market_cap_fmt": "$135.20B",
-      "pe_ratio_fmt": "25.31",
+      "pe_ratio_fmt": "632.63",
       "forward_pe_fmt": "13.40",
       "dividend_yield_fmt": "0.94%"
     },
@@ -1165,14 +1165,14 @@
       "high_52week": 189.61,
       "pct_above_low": 13.27,
       "range_position": 37.02,
-      "pe_ratio": 21.657534,
+      "pe_ratio": 21.77686,
       "forward_pe": 17.186687,
       "market_cap": 246403645440,
-      "dividend_yield": 3.74,
+      "dividend_yield": 3.72,
       "market_cap_fmt": "$246.40B",
-      "pe_ratio_fmt": "21.66",
+      "pe_ratio_fmt": "21.78",
       "forward_pe_fmt": "17.19",
-      "dividend_yield_fmt": "3.74%"
+      "dividend_yield_fmt": "3.72%"
     },
     {
       "ticker": "MDLZ",
