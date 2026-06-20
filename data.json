@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-06-19 08:43:01 UTC",
+  "last_updated": "2026-06-20 07:10:56 UTC",
   "threshold_percent": 15,
   "total_screened": 321,
-  "stocks_found": 87,
+  "stocks_found": 91,
   "stocks": [
     {
       "ticker": "T",
@@ -257,6 +257,24 @@
       "dividend_yield_fmt": "N/A"
     },
     {
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "sector": "Technology",
+      "current_price": 195.16,
+      "low_52week": 190.12,
+      "high_52week": 392.58,
+      "pct_above_low": 2.65,
+      "range_position": 2.49,
+      "pe_ratio": 11.164761,
+      "forward_pe": 7.086649,
+      "market_cap": 77576101888,
+      "dividend_yield": null,
+      "market_cap_fmt": "$77.58B",
+      "pe_ratio_fmt": "11.16",
+      "forward_pe_fmt": "7.09",
+      "dividend_yield_fmt": "N/A"
+    },
+    {
       "ticker": "INTU",
       "name": "Intuit Inc.",
       "sector": "Technology",
@@ -291,6 +309,24 @@
       "pe_ratio_fmt": "13.74",
       "forward_pe_fmt": "9.10",
       "dividend_yield_fmt": "1.07%"
+    },
+    {
+      "ticker": "MCD",
+      "name": "McDonald's Corporation",
+      "sector": "Consumer Cyclical",
+      "current_price": 278.61,
+      "low_52week": 270.15,
+      "high_52week": 337.56,
+      "pct_above_low": 3.13,
+      "range_position": 12.55,
+      "pe_ratio": 22.987623,
+      "forward_pe": 19.59441,
+      "market_cap": 197954027520,
+      "dividend_yield": null,
+      "market_cap_fmt": "$197.95B",
+      "pe_ratio_fmt": "22.99",
+      "forward_pe_fmt": "19.59",
+      "dividend_yield_fmt": "N/A"
     },
     {
       "ticker": "NFLX",
@@ -527,6 +563,24 @@
       "dividend_yield_fmt": "N/A"
     },
     {
+      "ticker": "MKTX",
+      "name": "MarketAxess Holdings, Inc.",
+      "sector": "Financial Services",
+      "current_price": 120.33,
+      "low_52week": 113.29,
+      "high_52week": 220.97,
+      "pct_above_low": 6.21,
+      "range_position": 6.54,
+      "pe_ratio": 14.25711,
+      "forward_pe": 13.492285,
+      "market_cap": 4276462336,
+      "dividend_yield": 2.5,
+      "market_cap_fmt": "$4.28B",
+      "pe_ratio_fmt": "14.26",
+      "forward_pe_fmt": "13.49",
+      "dividend_yield_fmt": "2.50%"
+    },
+    {
       "ticker": "XYL",
       "name": "Xylem Inc.",
       "sector": "Industrials",
@@ -579,6 +633,24 @@
       "pe_ratio_fmt": "22.61",
       "forward_pe_fmt": "19.61",
       "dividend_yield_fmt": "0.92%"
+    },
+    {
+      "ticker": "WRB",
+      "name": "W.R. Berkley Corporation",
+      "sector": "Financial Services",
+      "current_price": 67.18,
+      "low_52week": 62.87,
+      "high_52week": 77.62,
+      "pct_above_low": 6.86,
+      "range_position": 29.22,
+      "pe_ratio": 14.233051,
+      "forward_pe": 13.948583,
+      "market_cap": 25009551360,
+      "dividend_yield": 0.59,
+      "market_cap_fmt": "$25.01B",
+      "pe_ratio_fmt": "14.23",
+      "forward_pe_fmt": "13.95",
+      "dividend_yield_fmt": "0.59%"
     },
     {
       "ticker": "NDAQ",
