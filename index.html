@@ -22,84 +22,96 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 2200px;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: 0.5rem 1rem 1rem;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
+        .header-bar {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            padding: 0.4rem 0.25rem 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 0.75rem;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.25rem;
+            white-space: nowrap;
         }
 
-        .subtitle {
+        .header-stats {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
             color: #94a3b8;
-            font-size: 1rem;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .header-stats .stat {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.35rem;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .header-stats .stat-value {
             color: #60a5fa;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
 
-        .stat-label {
-            color: #94a3b8;
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
+        .header-stats .last-updated {
+            color: #64748b;
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 1500px) {
+            .table-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .table-container {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.875rem;
+            font-size: 0.78rem;
         }
 
         th {
             background: rgba(255, 255, 255, 0.05);
-            padding: 0.625rem 0.75rem;
+            padding: 0.3rem 0.4rem;
             text-align: left;
             font-weight: 600;
-            font-size: 0.7rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             color: #94a3b8;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             user-select: none;
             white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
 
         th:hover {
@@ -116,7 +128,7 @@
         th:not(.sort-asc):not(.sort-desc) .sort-icon::after { content: '⇅'; }
 
         td {
-            padding: 0.5rem 0.75rem;
+            padding: 0.18rem 0.4rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             white-space: nowrap;
         }
@@ -128,42 +140,43 @@
         .stock-cell {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .ticker {
             font-weight: 600;
             color: #60a5fa;
-            min-width: 50px;
+            min-width: 44px;
+            font-size: 0.78rem;
         }
 
         .company-name {
             color: #94a3b8;
-            font-size: 0.8rem;
+            font-size: 0.68rem;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 150px;
+            max-width: 110px;
         }
 
         .sector-badge {
             display: inline-block;
-            padding: 0.2rem 0.5rem;
+            padding: 0.1rem 0.4rem;
             background: rgba(139, 92, 246, 0.2);
             color: #a78bfa;
             border-radius: 9999px;
-            font-size: 0.7rem;
+            font-size: 0.62rem;
             font-weight: 500;
         }
 
         .price {
             font-weight: 500;
             font-family: 'SF Mono', 'Fira Code', monospace;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
         }
 
         .range-bar {
-            width: 60px;
-            height: 6px;
+            width: 50px;
+            height: 5px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 3px;
             overflow: hidden;
@@ -188,9 +201,9 @@
 
         .pct-badge {
             display: inline-block;
-            padding: 0.15rem 0.4rem;
+            padding: 0.08rem 0.35rem;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 600;
             font-family: 'SF Mono', 'Fira Code', monospace;
         }
@@ -203,13 +216,6 @@
         .pct-med {
             background: rgba(234, 179, 8, 0.2);
             color: #facc15;
-        }
-
-        .last-updated {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.8rem;
-            margin-bottom: 1.5rem;
         }
 
         .loading {
@@ -240,24 +246,7 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
-            }
-
-            .stat-card {
-                padding: 0.75rem;
-            }
-
-            .stat-value {
-                font-size: 1.25rem;
+                padding: 0.5rem;
             }
 
             .table-container {
@@ -272,56 +261,65 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header-bar">
             <h1>52-Week Low Screener</h1>
-            <p class="subtitle">Stocks trading near their 52-week lows</p>
-        </header>
-
-        <p class="last-updated" id="lastUpdated"></p>
-
-        <div class="stats-grid" id="stats">
-            <div class="stat-card">
-                <div class="stat-value" id="stocksFound">-</div>
-                <div class="stat-label">Stocks Found</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalScreened">-</div>
-                <div class="stat-label">Total Screened</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="threshold">-</div>
-                <div class="stat-label">Threshold</div>
+            <div class="header-stats">
+                <span class="stat"><span class="stat-value" id="stocksFound">-</span> found</span>
+                <span class="stat"><span class="stat-value" id="totalScreened">-</span> screened</span>
+                <span class="stat">threshold <span class="stat-value" id="threshold">-</span></span>
+                <span class="stat last-updated" id="lastUpdated"></span>
             </div>
         </div>
 
-        <div class="table-container">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Loading stock data...</p>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading stock data...</p>
+        </div>
+
+        <div class="table-grid" id="tableGrid" style="display: none;">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="ticker">Stock <span class="sort-icon"></span></th>
+                            <th data-sort="sector">Sector <span class="sort-icon"></span></th>
+                            <th data-sort="current_price">Price <span class="sort-icon"></span></th>
+                            <th data-sort="low_52week">52W Low <span class="sort-icon"></span></th>
+                            <th data-sort="high_52week">52W High <span class="sort-icon"></span></th>
+                            <th data-sort="pct_above_low">Above Low <span class="sort-icon"></span></th>
+                            <th>Range</th>
+                            <th data-sort="pe_ratio">P/E <span class="sort-icon"></span></th>
+                            <th data-sort="forward_pe">NTM P/E <span class="sort-icon"></span></th>
+                            <th data-sort="market_cap">Mkt Cap <span class="sort-icon"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyA"></tbody>
+                </table>
             </div>
-            <table id="stockTable" style="display: none;">
-                <thead>
-                    <tr>
-                        <th data-sort="ticker">Stock <span class="sort-icon"></span></th>
-                        <th data-sort="sector">Sector <span class="sort-icon"></span></th>
-                        <th data-sort="current_price">Price <span class="sort-icon"></span></th>
-                        <th data-sort="low_52week">52W Low <span class="sort-icon"></span></th>
-                        <th data-sort="high_52week">52W High <span class="sort-icon"></span></th>
-                        <th data-sort="pct_above_low">Above Low <span class="sort-icon"></span></th>
-                        <th>Range</th>
-                        <th data-sort="pe_ratio">P/E <span class="sort-icon"></span></th>
-                        <th data-sort="forward_pe">NTM P/E <span class="sort-icon"></span></th>
-                        <th data-sort="market_cap">Mkt Cap <span class="sort-icon"></span></th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                </tbody>
-            </table>
-            <div class="no-data" id="noData" style="display: none;">
-                <p>No stocks found within the threshold. Check back later!</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="ticker">Stock <span class="sort-icon"></span></th>
+                            <th data-sort="sector">Sector <span class="sort-icon"></span></th>
+                            <th data-sort="current_price">Price <span class="sort-icon"></span></th>
+                            <th data-sort="low_52week">52W Low <span class="sort-icon"></span></th>
+                            <th data-sort="high_52week">52W High <span class="sort-icon"></span></th>
+                            <th data-sort="pct_above_low">Above Low <span class="sort-icon"></span></th>
+                            <th>Range</th>
+                            <th data-sort="pe_ratio">P/E <span class="sort-icon"></span></th>
+                            <th data-sort="forward_pe">NTM P/E <span class="sort-icon"></span></th>
+                            <th data-sort="market_cap">Mkt Cap <span class="sort-icon"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyB"></tbody>
+                </table>
             </div>
         </div>
 
+        <div class="no-data" id="noData" style="display: none;">
+            <p>No stocks found within the threshold. Check back later!</p>
+        </div>
     </div>
 
     <script>
@@ -402,44 +400,55 @@
                 return;
             }
 
-            document.getElementById('stockTable').style.display = 'table';
+            document.getElementById('tableGrid').style.display = 'grid';
             renderTable(data.stocks);
         }
 
+        function rowHtml(stock) {
+            const pctClass = stock.pct_above_low <= 5 ? 'pct-low' : 'pct-med';
+            return `
+                <td>
+                    <div class="stock-cell">
+                        <span class="ticker">${stock.ticker}</span>
+                        <span class="company-name">${stock.name}</span>
+                    </div>
+                </td>
+                <td><span class="sector-badge">${stock.sector}</span></td>
+                <td class="price">$${stock.current_price.toFixed(2)}</td>
+                <td class="price">$${stock.low_52week.toFixed(2)}</td>
+                <td class="price">$${stock.high_52week.toFixed(2)}</td>
+                <td><span class="pct-badge ${pctClass}">+${stock.pct_above_low.toFixed(1)}%</span></td>
+                <td>
+                    <div class="range-bar">
+                        <div class="range-fill"></div>
+                        <div class="range-marker" style="left: ${stock.range_position}%"></div>
+                    </div>
+                </td>
+                <td class="price">${stock.pe_ratio_fmt}</td>
+                <td class="price">${stock.forward_pe_fmt}</td>
+                <td class="price">${stock.market_cap_fmt}</td>
+            `;
+        }
+
         function renderTable(stocks) {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
+            const tbodyA = document.getElementById('tableBodyA');
+            const tbodyB = document.getElementById('tableBodyB');
+            tbodyA.innerHTML = '';
+            tbodyB.innerHTML = '';
 
-            stocks.forEach(stock => {
+            const twoColumn = window.matchMedia('(min-width: 1500px)').matches;
+            const half = twoColumn ? Math.ceil(stocks.length / 2) : stocks.length;
+
+            stocks.forEach((stock, i) => {
                 const row = document.createElement('tr');
-                const pctClass = stock.pct_above_low <= 5 ? 'pct-low' : 'pct-med';
-
-                row.innerHTML = `
-                    <td>
-                        <div class="stock-cell">
-                            <span class="ticker">${stock.ticker}</span>
-                            <span class="company-name">${stock.name}</span>
-                        </div>
-                    </td>
-                    <td><span class="sector-badge">${stock.sector}</span></td>
-                    <td class="price">$${stock.current_price.toFixed(2)}</td>
-                    <td class="price">$${stock.low_52week.toFixed(2)}</td>
-                    <td class="price">$${stock.high_52week.toFixed(2)}</td>
-                    <td><span class="pct-badge ${pctClass}">+${stock.pct_above_low.toFixed(1)}%</span></td>
-                    <td>
-                        <div class="range-bar">
-                            <div class="range-fill"></div>
-                            <div class="range-marker" style="left: ${stock.range_position}%"></div>
-                        </div>
-                    </td>
-                    <td class="price">${stock.pe_ratio_fmt}</td>
-                    <td class="price">${stock.forward_pe_fmt}</td>
-                    <td class="price">${stock.market_cap_fmt}</td>
-                `;
-
-                tbody.appendChild(row);
+                row.innerHTML = rowHtml(stock);
+                (i < half ? tbodyA : tbodyB).appendChild(row);
             });
         }
+
+        window.addEventListener('resize', () => {
+            if (stockData.length) sortAndRender();
+        });
 
         loadData();
     </script>
