@@ -4,59 +4,36 @@ Outputs results to data.json for the frontend to display
 """
 
 import yfinance as yf
+import pandas as pd
+import requests
 import json
+from io import StringIO
 from datetime import datetime
 import concurrent.futures
 
-# S&P 500 + popular stocks (~300 tickers)
-TICKERS = [
-    # Mega Cap Tech
-    'AAPL', 'MSFT', 'GOOGL', 'GOOG', 'AMZN', 'META', 'NVDA', 'TSLA', 'AVGO', 'ORCL',
-    # Financials
-    'BRK-B', 'JPM', 'V', 'MA', 'BAC', 'WFC', 'GS', 'MS', 'SCHW', 'BLK',
-    'AXP', 'C', 'USB', 'PNC', 'TFC', 'COF', 'BK', 'STT', 'FITB', 'KEY',
-    'CFG', 'RF', 'HBAN', 'MTB', 'ZION', 'CMA', 'ALLY', 'DFS', 'SYF',
-    # Healthcare
-    'UNH', 'JNJ', 'LLY', 'PFE', 'MRK', 'ABBV', 'TMO', 'ABT', 'DHR', 'BMY',
-    'AMGN', 'GILD', 'ISRG', 'CVS', 'CI', 'ELV', 'HUM', 'MCK', 'SYK', 'BDX',
-    'ZTS', 'VRTX', 'REGN', 'MRNA', 'BIIB', 'ILMN', 'DXCM', 'IQV', 'MTD', 'A',
-    'BSX', 'EW', 'IDXX', 'ALGN', 'HOLX', 'RMD', 'BAX', 'ZBH', 'TECH', 'MOH',
-    # Consumer
-    'HD', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW', 'TJX', 'COST', 'WMT', 'PG',
-    'KO', 'PEP', 'PM', 'MO', 'MDLZ', 'CL', 'KMB', 'GIS', 'K', 'HSY',
-    'DG', 'DLTR', 'ROST', 'BBY', 'ULTA', 'ORLY', 'AZO', 'EBAY', 'ETSY', 'W',
-    'CMG', 'YUM', 'DPZ', 'DARDEN', 'MAR', 'HLT', 'WYNN', 'LVS', 'MGM', 'RCL',
-    'CCL', 'NCLH', 'EXPE', 'BKNG', 'ABNB', 'LULU', 'GPS', 'ANF', 'DECK', 'CROX',
-    # Tech & Software
-    'CRM', 'ADBE', 'NOW', 'INTU', 'SNPS', 'CDNS', 'PANW', 'CRWD', 'FTNT', 'ZS',
-    'WDAY', 'TEAM', 'DDOG', 'SNOW', 'MDB', 'NET', 'OKTA', 'ZM', 'DOCU', 'TWLO',
-    'PLTR', 'PATH', 'U', 'RBLX', 'SHOP', 'SQ', 'COIN', 'HOOD', 'SOFI', 'AFRM',
-    # Semiconductors
-    'AMD', 'INTC', 'QCOM', 'TXN', 'MU', 'LRCX', 'AMAT', 'KLAC', 'ADI', 'NXPI',
-    'MRVL', 'ON', 'SWKS', 'QRVO', 'MPWR', 'MCHP', 'ENTG', 'TER', 'COHR',
-    # Industrial
-    'CAT', 'DE', 'HON', 'UPS', 'UNP', 'RTX', 'LMT', 'BA', 'GE', 'MMM',
-    'EMR', 'ITW', 'ETN', 'PH', 'ROK', 'CMI', 'PCAR', 'FAST', 'GWW', 'SWK',
-    'IR', 'DOV', 'AME', 'OTIS', 'CARR', 'JCI', 'TT', 'GNRC', 'XYL', 'IEX',
-    # Energy
-    'XOM', 'CVX', 'COP', 'EOG', 'SLB', 'MPC', 'PSX', 'VLO', 'OXY', 'PXD',
-    'DVN', 'FANG', 'HES', 'HAL', 'BKR', 'KMI', 'WMB', 'OKE', 'TRGP', 'ET',
-    # Utilities
-    'NEE', 'DUK', 'SO', 'D', 'AEP', 'EXC', 'SRE', 'XEL', 'ED', 'WEC',
-    'ES', 'AWK', 'DTE', 'PPL', 'FE', 'AEE', 'CMS', 'CNP', 'NI', 'EVRG',
-    # REITs
-    'PLD', 'AMT', 'EQIX', 'CCI', 'PSA', 'SPG', 'O', 'WELL', 'DLR', 'AVB',
-    'EQR', 'VTR', 'ARE', 'MAA', 'UDR', 'ESS', 'INVH', 'SUI', 'ELS', 'CPT',
-    # Telecom & Media
-    'DIS', 'CMCSA', 'NFLX', 'T', 'VZ', 'TMUS', 'CHTR', 'WBD', 'PARA', 'FOX',
-    'FOXA', 'LYV', 'MTCH', 'EA', 'TTWO', 'ATVI',
-    # Other
-    'PYPL', 'FIS', 'FISV', 'GPN', 'ADP', 'PAYX', 'CTAS', 'SPGI', 'MCO', 'ICE',
-    'CME', 'MSCI', 'NDAQ', 'CBOE', 'MKTX', 'TRV', 'CB', 'PGR', 'ALL', 'MET',
-    'PRU', 'AFL', 'AIG', 'HIG', 'LNC', 'GL', 'FNF', 'CINF', 'WRB', 'L',
-    'APD', 'LIN', 'SHW', 'ECL', 'DD', 'DOW', 'LYB', 'PPG', 'NEM', 'FCX',
-    'GOLD', 'NUE', 'STLD', 'CLF', 'X', 'AA', 'ATI', 'RS', 'CMC'
-]
+_WIKI_HEADERS = {'User-Agent': 'stock-screener/1.0 (https://github.com/RFrisch/stock-screener)'}
+
+
+def _read_wiki_tables(url):
+    resp = requests.get(url, headers=_WIKI_HEADERS, timeout=30)
+    resp.raise_for_status()
+    return pd.read_html(StringIO(resp.text))
+
+
+def get_tickers():
+    """Fetch S&P 500 constituents plus any Nasdaq 100 names not already in the S&P 500."""
+    sp500 = _read_wiki_tables('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
+    sp500_tickers = set(sp500['Symbol'].astype(str))
+
+    nasdaq100 = _read_wiki_tables('https://en.wikipedia.org/wiki/List_of_NASDAQ-100_companies')[0]
+    nasdaq100_tickers = set(nasdaq100['Ticker'].astype(str))
+
+    combined = sp500_tickers | nasdaq100_tickers
+    # yfinance uses '-' instead of '.' in class-share tickers (e.g., BRK.B -> BRK-B)
+    return sorted(t.replace('.', '-') for t in combined)
+
+
+TICKERS = get_tickers()
 
 # Threshold: stock is "cheap" if within X% of 52-week low
 THRESHOLD_PERCENT = 15
